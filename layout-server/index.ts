@@ -22,12 +22,9 @@ app.get("/", async (req, res) => {
   incoming.podlets = [headerResponse];
   incoming.view.title = "My Finn.no Frontpage";
 
-  console.log(headerResponse.js[0]);
-  const js = headerResponse.js[0].value;
+  const js = headerResponse.js[0];
 
-  res.podiumSend(
-    `<div><header>${headerResponse}</header><script src="${js}"></script></div>`
-  );
+  res.podiumSend(`<div><header>${headerResponse}</header>${js.toHTML()}</div>`);
 });
 
 app.listen(7000);
