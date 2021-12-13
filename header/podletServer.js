@@ -14,7 +14,7 @@ const podlet = new Podlet({
 app.use(express.static("build"));
 app.use(podlet.middleware());
 
-podlet.js({ name: "header-react-bundle", value: "/bundle.js" });
+podlet.js({ value: "/bundle.js" });
 podlet.css({ value: "/bundle.css" });
 
 app.get(podlet.manifest(), (req, res) => res.status(200).send(podlet));
